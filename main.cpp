@@ -27,10 +27,7 @@ int main() {
         return -1 ;
     }
     check_gl_errors("glew set up") ;
-    Text text ;
-    if (text.Text::init_resources("FreeSans.ttf") == 0) {
-        return -1;
-    }
+    Text text ("OpenSans-Regular.ttf") ;
     while (!glfwWindowShouldClose(window)) {
         text.Text::display(window_w, window_h);
         glfwSwapBuffers(window);

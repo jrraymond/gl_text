@@ -24,7 +24,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 
 set(HEADERS shader_utils.h text.h)
-set(SOURCE_FILES main.cpp shader_utils.cpp)
+set(SOURCE_FILES main.cpp shader_utils.cpp text.cpp)
 add_executable(gl_freetype ${SOURCE_FILES})
 
 
