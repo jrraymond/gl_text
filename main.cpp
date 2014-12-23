@@ -27,13 +27,13 @@ int main() {
         return -1 ;
     }
     check_gl_errors("glew set up") ;
-    //if (init_resources("OpenSans-Regular.ttf") != 0) {
     Text text ;
-    if (text.Text::init_resources("FreeSans.ttf") != 0) {
-        while (!glfwWindowShouldClose(window)) {
-            text.Text::display(window_w, window_h);
-            glfwSwapBuffers(window);
-            glfwPollEvents();
-        }
+    if (text.Text::init_resources("FreeSans.ttf") == 0) {
+        return -1;
+    }
+    while (!glfwWindowShouldClose(window)) {
+        text.Text::display(window_w, window_h);
+        glfwSwapBuffers(window);
+        glfwPollEvents();
     }
 }

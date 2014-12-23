@@ -23,7 +23,7 @@ include_directories(${FREETYPE_INCLUDE_DIRS})
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 
-set(HEADERS shader_utils.h)
+set(HEADERS shader_utils.h text.h)
 set(SOURCE_FILES main.cpp shader_utils.cpp)
 add_executable(gl_freetype ${SOURCE_FILES})
 
