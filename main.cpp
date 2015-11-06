@@ -29,7 +29,11 @@ int main() {
     check_gl_errors("glew set up") ;
     Text text ("OpenSans-Regular.ttf") ;
     while (!glfwWindowShouldClose(window)) {
-        text.Text::display(window_w, window_h);
+        GLfloat black[4] = { 1, 1, 1, 1 } ;
+        text.Text::display("TESTING testing 1 1 12", -1, 0.9, 1.0 / window_w, 1.0 / window_h, black, 12);
+        text.Text::display("TESTING testing 1 1 48", -1, 0.8, 1.0 / window_w, 1.0 / window_h, black, 48);
+        text.Text::display("TESTING testing 2 2 48", -1, 0.7, 2.0 / window_w, 2.0 / window_h, black, 48);
+        //text.Text::render("TESTING TESTING TESTIGN",1,1, 2/window_w,2/window_h, black, 48) ;
         glfwSwapBuffers(window);
         glfwPollEvents();
     }

@@ -53,38 +53,28 @@ Text::~Text() {
     FT_Done_FreeType(ft) ;
     Text::initialized = false ;
 }
-
-void Text::display(int w, int h) {
-    float sx = 2.0 / w ;
-    float sy = 2.0 / h ;
-
+/* Render text to the screen
+ * @param txt the text to display
+ * @param x the x coordinate (-1 to 1)
+ * @param y the y coordinate (-1 to 1)
+ * @param sx the x-scaling
+ * @param sy the y-scaling
+ * @param color the color of the text
+ * @param font_sz the font size
+ */
+void Text::display(const char* txt, float x, float y, float sx, float sy, const GLfloat* color, int font_sz) {
     glUseProgram(program) ;
-
-    /* White background */
-    glClearColor(1, 1, 1, 1) ;
-    glClear(GL_COLOR_BUFFER_BIT) ;
 
     /* Enable blending, necessary for our alpha texture */
     glEnable(GL_BLEND) ;
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA) ;
 
-    GLfloat black[4] = { 0, 0, 0, 1 } ;
-    GLfloat transparent_green[4] = { 0, 1, 0, 0.5 } ;
-
     /* Set font size to 48 pixels, color to black */
-    FT_Set_Pixel_Sizes(face, 0, 48) ;
-    glUniform4fv(clr_unif, 1, black) ;
+    FT_Set_Pixel_Sizes(face, 0, font_sz) ;
+    glUniform4fv(clr_unif, 1, color) ;
 
     /* Effects of alignment */
-    render_text("The Quick Brown Fox Jumps Over The Lazy Dog", -1 + 8 * sx, 1 - 50 * sy, sx, sy) ;
-
-    /* Scaling the texture versus changing the font size */
-    render_text("The Small Texture Scaled Fox Jumps Over The Lazy Dog", -1 + 8 * sx, 1 - 175 * sy, sx * 0.5, sy * 0.5) ;
-
-    /* Colors and transparency */
-    glUniform4fv(clr_unif, 1, transparent_green) ;
-    render_text("The Transparent Green Fox Jumps Over The Lazy Dog", -1 + 18 * sx, 1 - 440 * sy, sx, sy) ;
-
+    render_text(txt, x, y, sx, sy) ;
 }
 
 void Text::render_text(const char *text, float x, float y, float sx, float sy) {

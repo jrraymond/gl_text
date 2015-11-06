@@ -47,9 +47,10 @@ public:
 
     void render_text(const char *text, float x, float y, float sx, float sy) ;
 
-    void display(int w, int h);
+    void display(const char* txt, float x, float y, float w, float h, const GLfloat* color, int font_sz);
 
     ~Text();
+
 } ;
 
 #endif
