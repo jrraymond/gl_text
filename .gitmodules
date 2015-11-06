@@ -1,0 +1,3 @@
+[submodule "shader_utils"]
+	path = shader_utils
+	url = git@github.com:jrraymond/shader_utils.git

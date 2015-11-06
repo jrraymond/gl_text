@@ -5,7 +5,7 @@
 #include FT_FREETYPE_H
 #include <fts.h>
 #include <GL/glew.h>
-#include "shader_utils.h"
+#include "shader_utils/shader_utils.h"
 
 #include <stdio.h>
 #include <stdlib.h>

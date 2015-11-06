@@ -1,7 +1,7 @@
 #include <iostream>
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
-#include "shader_utils.h"
+#include "shader_utils/shader_utils.h"
 #include "text.h"
 
 int main() {
